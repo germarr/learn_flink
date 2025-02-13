@@ -1,0 +1,8 @@
+pandas
+requests
+python-dotenv
+matplotlib
+numpy
+scikit-learn
+pytz
+quixstreams
