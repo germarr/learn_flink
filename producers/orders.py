@@ -41,7 +41,6 @@ def generate_order():
     
     return data
 
-
 def main(kafka_broker:str='kafka-broker:9092'):
     app = Application(
         broker_address=kafka_broker,

@@ -56,3 +56,28 @@ docker-compose exec jobmanager ./bin/flink list
 O usando el UI de Flink.
 
 
+Activar Kafka usando quix
+pip install quix
+curl -fsSL https://github.com/quixio/quix-cli/raw/main/install.sh | bash
+quix
+git init
+quix init
+quix pipeline up
+sudo quix pipeline up
+pip install requests_sse
+
+### En Linux asi se genera el archivo que arranca el websocket
+[Unit]
+Description=Crypto Prices to Kafka
+After=network.target
+
+[Service]
+ExecStart=/home/gmarr/kafka/.venv/bin/python3 /home/gmarr/kafka/cryp.py > output.txt 2>&1
+Restart=always
+User=gmarr
+WorkingDirectory=/home/gmarr/kafka
+StandardOutput=append:/home/gmarr/kafka/output.txt
+StandardError=append:/home/gmarr/kafka/output.txt
+
+[Install]
+WantedBy=multi-user.target
